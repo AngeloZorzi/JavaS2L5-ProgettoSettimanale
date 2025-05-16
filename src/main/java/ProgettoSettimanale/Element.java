@@ -1,5 +1,7 @@
 package ProgettoSettimanale;
 
+import java.util.Objects;
+
 abstract class Element {
     private String ISBN;
     private String title;
@@ -40,14 +42,21 @@ abstract class Element {
     public void setPages(int pages) {
         this.pages = pages;
     }
-
     @Override
     public String toString() {
-        return "Element{" +
-                "ISBN='" + ISBN + '\'' +
-                ", title='" + title + '\'' +
-                ", year=" + year +
-                ", pages=" + pages +
-                '}';
+        return String.format("ISBN: %s | Title: %s | Year: %d | Pages: %d", ISBN, title, year, pages);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Element element = (Element) o;
+        return ISBN.equals(element.ISBN);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ISBN);
     }
 }
