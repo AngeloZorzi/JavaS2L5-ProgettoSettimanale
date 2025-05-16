@@ -44,7 +44,7 @@ public class Archive {
         long booksNu = elements.values().stream().filter(element -> element instanceof Book).count();
         long magazinesNu = elements.values().stream().filter(element -> element instanceof Magazine).count();
 
-        elements.values().stream().max(Comparator.comparingInt(Element::getPages)).ifPresent(max -> System.out.println("Element with more pages:"+max));
+        elements.values().stream().max(Comparator.comparingInt(Element::getPages)).ifPresent(max -> System.out.println("Element with more pages: "+max));
 
        double avaragePages = elements.values().stream().mapToInt(Element::getPages).average().orElse(0.0);
         System.out.println("Books in archive: "+ booksNu);
