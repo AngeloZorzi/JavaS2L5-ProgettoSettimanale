@@ -46,10 +46,10 @@ public class Archive {
 
         elements.values().stream().max(Comparator.comparingInt(Element::getPages)).ifPresent(max -> System.out.println("Element with more pages: "+max));
 
-       double avaragePages = elements.values().stream().mapToInt(Element::getPages).average().orElse(0.0);
+       double averagePages = elements.values().stream().mapToInt(Element::getPages).average().orElse(0.0);
         System.out.println("Books in archive: "+ booksNu);
         System.out.println("Magazines in archive: "+ magazinesNu);
-        System.out.println("Avarage pages: "+ avaragePages );
+        System.out.println("Average pages: "+ averagePages );
     }
     public boolean isEmpty() {
         return elements.isEmpty();
